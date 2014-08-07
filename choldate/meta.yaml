@@ -1,0 +1,34 @@
+package:
+  name: choldate
+  version: "0.1.0"
+
+source:
+  fn: choldate-9f7bf993863743aeb4d1ee1fdcf2eb8d813c8794.tar.gz
+  url: https://github.com/jcrudy/choldate/archive/9f7bf993863743aeb4d1ee1fdcf2eb8d813c8794.tar.gz
+  sha1: 7b856e6bdcd96e402bc716ff6fd26e0fa992421e
+
+build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 0
+
+requirements:
+  build:
+    - python
+    - cython
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - choldate
+
+about:
+  home: https://github.com/jcrudy/choldate
+  license:  Custom (redistribution permitted but disclaimer must be preserved)
+  summary: 'Somewhat fast updating and downdating of Cholesky factors in Python'

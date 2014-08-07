@@ -1,0 +1,16 @@
+# This Tank file will build pyproj inside the container.
+
+containers:
+  - lucid-ci
+
+script:
+  - "wget http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-x86_64.sh -O /tmp/Miniconda-3.5.5-Linux-x86_64.sh"
+  - "bash /tmp/Miniconda-3.5.5-Linux-x86_64.sh -b"
+  - "~/miniconda/bin/conda install --yes conda-build"
+  - "~/miniconda/bin/conda build /tmp/pyproj"
+
+copy_into:
+  - "./": "/tmp/pyproj"
+
+copy_out:
+  - "miniconda/conda-bld/linux-64": "/tmp/built/"
