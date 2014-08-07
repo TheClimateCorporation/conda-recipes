@@ -1,0 +1,21 @@
+# This Tank file will verify that scikits.sparse installs correctly. (It
+# installs suitesparse in the container as needed.)
+#
+# Run via: sudo -E tank container.yml
+
+containers:
+  - lucid-ci
+
+script:
+  - "wget http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-x86_64.sh -O /tmp/Miniconda-3.5.5-Linux-x86_64.sh"
+  - "bash /tmp/Miniconda-3.5.5-Linux-x86_64.sh -b"
+  - "sudo apt-get install -y libsuitesparse-dev"
+    # For some reason, we need to install the dependencies manually :(
+  - "~/miniconda/bin/conda create --yes -n test python setuptools numpy scipy nose"
+    # Install the actuall package
+  - "~/miniconda/bin/conda install --yes -n test /tmp/scikits-sparse-0.2-np18py27_0.tar.bz2"
+    # Run the tests!
+  - "~/miniconda/envs/test/bin/nosetests scikits.sparse.test_cholmod"
+
+copy_into:
+  - "~/miniconda/conda-bld/linux-64/scikits-sparse-0.2-np18py27_0.tar.bz2": /tmp/scikits-sparse-0.2-np18py27_0.tar.bz2

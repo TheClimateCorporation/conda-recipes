@@ -1,0 +1,50 @@
+# This provides scikits.sparse. That depends on libcholmod, which is installed
+# (on linux) as part of libsuitesparse-dev. You must have that library
+# installed in order to build or use this package!
+
+package:
+  name: scikits-sparse
+  version: "0.2"
+
+source:
+  fn: scikits.sparse-0.2.tar.gz
+  url: https://pypi.python.org/packages/source/s/scikits.sparse/scikits.sparse-0.2.tar.gz
+  md5: 0ee93ef2b1e5b9eb5c2a4e29dd06168a
+  patches:
+    # This patch makes sure the test data is included in the package.
+    - test_data.patch
+
+build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 0
+
+requirements:
+  build:
+    - python
+    - cython
+    - setuptools
+    - numpy
+    - scipy
+
+  run:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+
+test:
+  # Python imports
+  imports:
+    - scikits.sparse
+
+  requires:
+    - nose
+
+  commands:
+    - nosetests scikits.sparse.test_cholmod
+
+about:
+  home: http://code.google.com/p/scikits-sparse/
+  license:  GNU General Public License (GPL)
+  summary: 'Scikits sparse matrix package'

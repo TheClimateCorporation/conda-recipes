@@ -1,0 +1,111 @@
+package:
+  name: boto
+  version: !!str 2.28.0
+
+source:
+  fn: boto-2.28.0.tar.gz
+  url: https://pypi.python.org/packages/source/b/boto/boto-2.28.0.tar.gz
+  md5: 84ec31503b03a3a5dd049c7120cda845
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  #preserve_egg_dir: True
+  #entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - boto = boto:main
+    #
+    # Would create an entry point called boto that calls boto.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - boto
+    - boto.beanstalk
+    - boto.cacerts
+    - boto.cloudformation
+    - boto.cloudfront
+    - boto.cloudsearch
+    - boto.cloudsearch2
+    - boto.cloudtrail
+    - boto.contrib
+    - boto.datapipeline
+    - boto.directconnect
+    - boto.dynamodb
+    - boto.dynamodb2
+    - boto.ec2
+    - boto.ec2.autoscale
+    - boto.ec2.cloudwatch
+    - boto.ec2.elb
+    - boto.ecs
+    - boto.elasticache
+    - boto.elastictranscoder
+    - boto.emr
+    - boto.file
+    - boto.fps
+    - boto.glacier
+    - boto.gs
+    - boto.iam
+    - boto.kinesis
+    - boto.manage
+    - boto.mashups
+    - boto.mturk
+    - boto.mws
+    - boto.opsworks
+    - boto.pyami
+    - boto.pyami.installers
+    - boto.pyami.installers.ubuntu
+    - boto.rds
+    - boto.rds2
+    - boto.redshift
+    - boto.roboto
+    - boto.route53
+    - boto.s3
+    - boto.sdb
+    - boto.sdb.db
+    - boto.sdb.db.manager
+    - boto.services
+    - boto.ses
+    - boto.sns
+    - boto.sqs
+    - boto.sts
+    - boto.support
+    - boto.swf
+    - boto.vpc
+
+  #commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/boto/boto/
+  license: MIT License
+  summary: 'Amazon Web Services Library'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
