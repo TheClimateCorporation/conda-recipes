@@ -29,12 +29,12 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.7
+    - numpy
     - pandas >=0.13.1
 
   run:
     - python
-    - numpy >=1.7
+    - numpy
     - pandas >=0.13.1
 
 test:
