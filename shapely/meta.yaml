@@ -1,0 +1,36 @@
+package:
+  name: shapely
+  version: !!str 1.4.0
+
+source:
+  fn: Shapely-1.4.0.tar.gz
+  url: https://pypi.python.org/packages/source/S/Shapely/Shapely-1.4.0.tar.gz
+  md5: 8194c567cfdcfe0b458e041366924270
+  patches:
+    - osx-geos.patch        [osx]
+
+requirements:
+  build:
+    - python
+    - cython
+    - numpy ==1.8
+    - geos >=3.4.2
+  run:
+    - python
+    - numpy ==1.8
+    - geos >=3.4.2
+
+test:
+  imports:
+    - shapely
+    - shapely.algorithms
+    - shapely.examples
+    - shapely.geometry
+    - shapely.speedups
+    - shapely.vectorized
+    - shapely.speedups._speedups
+
+about:
+  home: https://github.com/Toblerity/Shapely
+  license: BSD
+  summary: 'Geometric objects, predicates, and operations'
