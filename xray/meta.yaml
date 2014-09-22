@@ -1,29 +1,11 @@
 package:
   name: xray
-  version: "0.2.0"
+  version: "0.3.0"
 
 source:
-  fn: xray-0.2.0.tar.gz
-  url: https://pypi.python.org/packages/source/x/xray/xray-0.2.0.tar.gz
-  md5: 95b2d0496655217daf80ffe31d05e486
-#  patches:
-   # List any patch files here
-   # - fix.patch
-
-# build:
-  #preserve_egg_dir: True
-  #entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - xray = xray:main
-    #
-    # Would create an entry point called xray that calls xray.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  fn: xray-0.3.0.tar.gz
+  url: https://pypi.python.org/packages/source/x/xray/xray-0.3.0.tar.gz
+  md5: e68f13bec0e6efaf4b8db8cf06889dbe
 
 requirements:
   build:
@@ -38,28 +20,17 @@ requirements:
     - pandas >=0.13.1
 
 test:
-  # Python imports
   imports:
     - xray
     - xray.backends
 
-  #commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
+  requires:
+    - nose
 
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+  commands:
+    - nosetests xray
 
 about:
   home: https://github.com/xray/xray
   license: Apache Software License
-  summary: 'Extended arrays for working with scientific datasets in Python'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: 'N-D labeled arrays and datasets in Python'
