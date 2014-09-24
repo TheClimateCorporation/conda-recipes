@@ -22,10 +22,6 @@ requirements:
     - matplotlib
     - geos >=3.4.2
 
-test:
-  imports:
-    - mpl_toolkits.basemap
-
 about:
   home: http://matplotlib.org/basemap
   license: GNU GPL
