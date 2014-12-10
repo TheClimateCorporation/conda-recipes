@@ -7,6 +7,6 @@ if [ ${UNAME} = 'Darwin' ]; then
     export LDFLAGS="$CFLAGS"
 fi
 
-bash configure --with-python --prefix=$PREFIX
+bash configure --with-python --prefix=$PREFIX --with-sqlite3=$PREFIX
 make
 make install
