@@ -1,11 +1,11 @@
 package:
   name: click
-  version: !!str 2.4
+  version: !!str 3.3
 
 source:
-  fn: click-2.4.tar.gz
-  url: https://pypi.python.org/packages/source/c/click/click-2.4.tar.gz
-  md5: 7affaac2973184810c018fab7cedca4f
+  fn: click-3.3.tar.gz
+  url: https://pypi.python.org/packages/source/c/click/click-3.3.tar.gz
+  md5: 40edaba4d216915a8326c5b2cb52781d
 #  patches:
    # List any patch files here
    # - fix.patch

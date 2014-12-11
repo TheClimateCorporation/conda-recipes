@@ -1,8 +1,9 @@
 package:
   name: rasterio
-  version: !!str 0.15
+  version: "0.15.1"
 
 source:
+  git_tag: "0.15.1"
   git_url: https://github.com/mapbox/rasterio.git
 #  patches:
    # List any patch files here
@@ -24,48 +25,36 @@ build:
   # number. If you do not include this key, it defaults to 0.
   # number: 1
 
+
+  entry_points:
+    - rio = rasterio.rio.main:cli
+
 requirements:
   build:
+    - affine >=1.0
+    - cython >=0.20
+    - click
+    - enum34
+    - gdal
     - numpy >=1.8
     - python
-    - click
-    #- coveralls >=0.4  Listed as a test requirement but no conda build available
-    - gdal
-    - enum34
-    - cython >=0.20
     - setuptools
-    - six
-    - affine >=1.0
 
   run:
-    - python
-    - gdal
-    - click
-    - pytest
     - affine >=1.0
+    - click
     - enum34
+    - gdal
     - numpy >=1.8
+    - python
 
 test:
-  # Python imports
   imports:
     - rasterio
 
-  #commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
-  home: http://code.google.com/p/pyshp
-  license:
+  home: https://github.com/mapbox/rasterio
+  license: BSD
 
 # See
 # http://docs.continuum.io/conda/build.html for
