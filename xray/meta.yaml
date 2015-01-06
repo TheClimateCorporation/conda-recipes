@@ -1,23 +1,23 @@
 package:
   name: xray
-  version: "0.3.1"
+  version: "0.3.2"
 
 source:
-  fn: xray-0.3.1.tar.gz
-  url: https://pypi.python.org/packages/source/x/xray/xray-0.3.1.tar.gz
-  md5: 148c7b2e6c757373025d541833742003
+  fn: xray-0.3.2.tar.gz
+  url: https://pypi.python.org/packages/source/x/xray/xray-0.3.2.tar.gz
+  md5: 332c9112edb4e3056aa091fbc4f8f120
 
 requirements:
   build:
     - python
     - setuptools
     - numpy
-    - pandas >=0.13.1
+    - pandas >=0.15
 
   run:
     - python
     - numpy
-    - pandas >=0.13.1
+    - pandas >=0.15
 
 test:
   imports:
