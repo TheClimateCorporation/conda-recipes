@@ -2,6 +2,9 @@ package:
   name: shapely
   version: !!str 1.4.0
 
+build:
+  number: 1
+
 source:
   fn: Shapely-1.4.0.tar.gz
   url: https://pypi.python.org/packages/source/S/Shapely/Shapely-1.4.0.tar.gz
@@ -13,11 +16,11 @@ requirements:
   build:
     - python
     - cython
-    - numpy ==1.8
+    - numpy >=1.8
     - geos >=3.4.2
   run:
     - python
-    - numpy ==1.8
+    - numpy >=1.8
     - geos >=3.4.2
 
 test:
