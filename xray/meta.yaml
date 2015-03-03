@@ -1,11 +1,11 @@
 package:
   name: xray
-  version: "0.3.2"
+  version: "0.4.0"
 
 source:
-  fn: xray-0.3.2.tar.gz
-  url: https://pypi.python.org/packages/source/x/xray/xray-0.3.2.tar.gz
-  md5: 332c9112edb4e3056aa091fbc4f8f120
+  fn: xray-0.4.0.tar.gz
+  url: https://pypi.python.org/packages/source/x/xray/xray-0.4.0.tar.gz
+  md5: 0950272844f6acf4963bd9acba1e25e6
 
 requirements:
   build:
