@@ -48,25 +48,27 @@ test:
     - kombu.tests.transport.virtual
     - kombu.tests.utils
     - kombu.transport
-    - kombu.transport.django
-    - kombu.transport.django.management
-    - kombu.transport.django.management.commands
-    - kombu.transport.django.migrations
-    - kombu.transport.sqlalchemy
+    # The following modules import optional runtime dependencies:
+    #- kombu.transport.django
+    #- kombu.transport.django.management
+    #- kombu.transport.django.management.commands
+    #- kombu.transport.django.migrations
+    #- kombu.transport.sqlalchemy
     - kombu.transport.virtual
     - kombu.utils
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
+  commands:
+    - nosetests -v kombu.tests
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+  requires:
+    - mock >=1.0.1
+    - nose >=1.3.4
+    - django >=1.8,<2.0
+    - sqlalchemy
+
 
 about:
   home: http://kombu.readthedocs.org
