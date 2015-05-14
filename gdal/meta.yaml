@@ -1,6 +1,6 @@
 package:
   name: gdal
-  version: 1.11.2
+  version: 1.11.2.fix-config-shell
 
 source:
   fn: gdal-1.11.2.tar.gz                                         [unix]
