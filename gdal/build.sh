@@ -2,6 +2,10 @@
 
 # http://www.michael-joost.de/gdal_install.html
 unset CC CPP CXX
+#SHELL takes the value of CONFIG_SHELL during build time and if
+#CONFIG_SHELL is not set, SHELL defaults to /bin/sh. GDAL builds
+#depend on shell features of /bin/bash and builds fail if CONFIG_SHELL
+#isn't set.  This would cause the error reported at https://trac.osgeo.org/gdal/ticket/4102
 CONFIG_SHELL=/bin/bash bash configure \
     --with-python=$PREFIX/bin/python \
     --with-hdf5=$PREFIX \
