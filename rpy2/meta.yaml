@@ -41,7 +41,8 @@ test:
   # Python imports
   imports:
     - rpy2
-    # these imports fail in lucid tests, but work in lucid  :-/
+    # readline fixes the following imports in lucid builds
+    - readline
     - rpy2.interactive
     - rpy2.interactive.tests
     - rpy2.ipython
