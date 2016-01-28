@@ -1,11 +1,11 @@
 package:
   name: rpy2
-  version: !!str 2.4.3
+  version: !!str 2.7.7
 
 source:
-  fn: rpy2-2.4.3.tar.gz
-  url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.4.3.tar.gz
-  md5: 57e3fda409226dffb543c913c8553cdc
+  fn: rpy2-2.7.7.tar.gz
+  url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.7.7.tar.gz
+  md5: be93432426744cdae8a0e5d2b157d371
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -29,27 +29,32 @@ requirements:
   build:
     - python
     - setuptools
+    - singledispatch
 
   run:
     - python
+    - pandas
+    - ipython
+    - singledispatch
 
 test:
   # Python imports
   imports:
     - rpy2
-    # these imports fail in lucid tests, but work in lucid  :-/
-    #- rpy2.interactive
-    #- rpy2.interactive.tests
-    #- rpy2.ipython
-    #- rpy2.ipython.tests
-    #- rpy2.rinterface
-    #- rpy2.rinterface.tests
-    #- rpy2.rlike
-    #- rpy2.rlike.tests
-    #- rpy2.robjects
-    #- rpy2.robjects.lib
-    #- rpy2.robjects.lib.tests
-    #- rpy2.robjects.tests
+    # readline fixes the following imports in lucid builds
+    - readline
+    - rpy2.interactive
+    - rpy2.interactive.tests
+    - rpy2.ipython
+    - rpy2.ipython.tests
+    - rpy2.rinterface
+    - rpy2.rinterface.tests
+    - rpy2.rlike
+    - rpy2.rlike.tests
+    - rpy2.robjects
+    - rpy2.robjects.lib
+    - rpy2.robjects.lib.tests
+    - rpy2.robjects.tests
 
   #commands:
     # You can put test commands to be run here.  Use this to test that the
