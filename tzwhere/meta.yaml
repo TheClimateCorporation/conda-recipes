@@ -1,0 +1,29 @@
+package:
+  name: tzwhere
+  version: "2.3"
+
+source:
+  git_url: https://github.com/pegler/pytzwhere.git
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - tzwhere
+
+about:
+  home: https://github.com/pegler/pytzwhere
+  license: MIT License
+  license_file: LICENSE
+  summary: 'Python library to look up timezone from lat / long offline'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
