@@ -3,7 +3,7 @@ package:
   version: !!str 2.8.0
 
 source:
-  fn: rpy2-2.7.8.tar.gz
+  fn: rpy2-2.8.0.tar.gz
   url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.8.0.tar.gz
   md5: cfb51aa4429f81b54afd13dca06b9749
 #  patches:
