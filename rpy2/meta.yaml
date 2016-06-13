@@ -4,7 +4,7 @@ package:
 
 source:
   fn: rpy2-2.8.0.tar.gz
-  url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.8.0.tar.gz
+  url: https://pypi.python.org/packages/c3/ce/dc91e8879b84771fda231b0a1b46e09615bd072d1d2b135b3ee5913b66c3/rpy2-2.8.0.tar.gz
   md5: cfb51aa4429f81b54afd13dca06b9749
 #  patches:
    # List any patch files here
