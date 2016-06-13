@@ -1,11 +1,11 @@
 package:
   name: rpy2
-  version: !!str 2.7.8
+  version: !!str 2.8.0
 
 source:
   fn: rpy2-2.7.8.tar.gz
-  url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.7.8.tar.gz
-  md5: 56ca162bca76bb9c3f935f099c916196
+  url: https://pypi.python.org/packages/source/r/rpy2/rpy2-2.8.0.tar.gz
+  md5: cfb51aa4429f81b54afd13dca06b9749
 #  patches:
    # List any patch files here
    # - fix.patch
