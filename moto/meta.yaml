@@ -1,0 +1,110 @@
+package:
+  name: moto
+  version: "0.4.24"
+
+source:
+  fn: moto-0.4.24.tar.gz
+  url: https://pypi.python.org/packages/af/bc/d87ba16e9866257ce4f85c77a0b0b4e581472b9b2c0ac6c80885be7ca33c/moto-0.4.24.tar.gz
+  md5: e864b0865eb666f0af645d767be77a35
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - moto = moto:main
+    #
+    # Would create an entry point called moto that calls moto.main()
+
+    - moto_server = moto.server:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jinja2
+    - boto >=2.36.0
+    - flask
+    - httpretty ==0.8.10
+    - requests
+    - xmltodict
+    - six
+    - werkzeug
+
+  run:
+    - python
+    - jinja2
+    - boto >=2.36.0
+    - flask
+    - httpretty ==0.8.10
+    - requests
+    - xmltodict
+    - six
+    - werkzeug
+
+test:
+  # Python imports
+  imports:
+    - moto
+    - moto.apigateway
+    - moto.autoscaling
+    - moto.awslambda
+    - moto.cloudformation
+    - moto.cloudwatch
+    - moto.core
+    - moto.datapipeline
+    - moto.dynamodb
+    - moto.dynamodb2
+    - moto.ec2
+    - moto.ec2.responses
+    - moto.ecs
+    - moto.elb
+    - moto.emr
+    - moto.glacier
+    - moto.iam
+    - moto.kinesis
+    - moto.kms
+    - moto.opsworks
+    - moto.rds
+    - moto.rds2
+    - moto.redshift
+    - moto.route53
+    - moto.s3
+    - moto.s3bucket_path
+    - moto.ses
+    - moto.sns
+    - moto.sqs
+    - moto.sts
+    - moto.swf
+    - moto.swf.models
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - moto_server --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/spulec/moto
+  license: Apache Software License
+  summary: 'A library that allows your python tests to easily mock out the boto library'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
