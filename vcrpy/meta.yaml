@@ -1,0 +1,77 @@
+package:
+  name: vcrpy
+  version: "1.8.0"
+
+source:
+  fn: vcrpy-1.8.0.tar.gz
+  url: https://files.pythonhosted.org/packages/cd/bf/dabfa9127f986a2f671199624b1ff88df58b3c542d2e3a0131eb07ebd9f3/vcrpy-1.8.0.tar.gz
+  md5: 3e88b570089a65df3217eebb35ae5a86
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - vcrpy = vcrpy:main
+    #
+    # Would create an entry point called vcrpy that calls vcrpy.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml
+    - wrapt
+    - six >=1.5
+    - contextlib2
+    - mock
+
+  run:
+    - python
+    - pyyaml
+    - wrapt
+    - six >=1.5
+    - contextlib2
+    - mock
+
+test:
+  # Python imports
+  imports:
+    - vcr
+    - vcr.persisters
+    - vcr.serializers
+    - vcr.stubs
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - mock
+    - pytest
+    - pytest_httpbin
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/kevin1024/vcrpy
+  license: MIT License
+  summary: 'Automatically mock your HTTP interactions to simplify and speed up testing'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
