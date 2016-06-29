@@ -6,9 +6,9 @@ source:
   fn: moto-0.4.24.tar.gz
   url: https://pypi.python.org/packages/af/bc/d87ba16e9866257ce4f85c77a0b0b4e581472b9b2c0ac6c80885be7ca33c/moto-0.4.24.tar.gz
   md5: e864b0865eb666f0af645d767be77a35
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  patches:
+    # List any patch files here
+    - setup.py.patch
 
 build:
   # noarch_python: True
