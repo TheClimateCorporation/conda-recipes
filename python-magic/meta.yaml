@@ -6,9 +6,9 @@ source:
   fn: python-magic-0.4.9.tar.gz
   url: https://pypi.python.org/packages/c7/2a/deb502009b4b0a96c00988346f14e2b698f56928ca48d080e3a6fb8580d0/python-magic-0.4.9.tar.gz
   md5: a0799600d9e227fffbb0cf403722663c
- patches:
-   # List any patch files here
-   - add_env_path.patch
+  patches:
+    # List any patch files here
+    - add_env_path.patch
 
 # build:
   # noarch_python: True
