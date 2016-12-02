@@ -1,11 +1,11 @@
 package:
   name: moto
-  version: "0.4.24"
+  version: "0.4.30"
 
 source:
-  fn: moto-0.4.24.tar.gz
-  url: https://pypi.python.org/packages/af/bc/d87ba16e9866257ce4f85c77a0b0b4e581472b9b2c0ac6c80885be7ca33c/moto-0.4.24.tar.gz
-  md5: e864b0865eb666f0af645d767be77a35
+  fn: moto-0.4.30.tar.gz
+  url: https://pypi.python.org/packages/63/b3/9cb00133646a23e489d2d1f671aa30b7fdf58c62cd8c1e2c4c9b13de402c/moto-0.4.30.tar.gz
+  md5: ccec3533327bd68e93c333ceb0b1e36d
   patches:
     # List any patch files here
     - setup.py.patch
