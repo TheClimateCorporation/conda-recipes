@@ -39,6 +39,8 @@ requirements:
     - xmltodict
     - six
     - werkzeug
+    - pytz
+    - python-dateutil
 
   run:
     - python
@@ -50,6 +52,8 @@ requirements:
     - xmltodict
     - six
     - werkzeug
+    - pytz
+    - python-dateutil
 
 test:
   # Python imports
