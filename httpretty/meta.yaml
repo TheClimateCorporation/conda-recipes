@@ -1,11 +1,11 @@
 package:
   name: httpretty
-  version: !!str 0.8.3
+  version: 0.8.10
 
 source:
-  fn: httpretty-0.8.3.tar.gz
-  url: https://pypi.python.org/packages/source/h/httpretty/httpretty-0.8.3.tar.gz
-  md5: 50b02560a49fe928c90c53a49791f621
+  fn: httpretty-0.8.10.tar.gz
+  url: https://pypi.python.org/packages/e2/25/603bc6b096385b02184cc94f9088fcc06abd9398d0975bbbce97a8989ab5/httpretty-0.8.10.tar.gz
+  md5: 9c130b16726cbf85159574ae5761bce7
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -29,11 +29,9 @@ requirements:
   build:
     - python
     - setuptools
-    - urllib3 ==1.7.1
 
   run:
     - python
-    - urllib3 ==1.7.1
 
 test:
   # Python imports
