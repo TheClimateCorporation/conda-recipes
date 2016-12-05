@@ -31,10 +31,10 @@ requirements:
   build:
     - python
     - setuptools
-    - jinja2
+    - jinja2 >=2.8
     - boto >=2.36.0
     - flask
-    - httpretty >=0.8.10
+    - httpretty ==0.8.10
     - requests
     - xmltodict
     - six
@@ -44,7 +44,7 @@ requirements:
 
   run:
     - python
-    - jinja2
+    - jinja2 >=2.8
     - boto >=2.36.0
     - flask
     - httpretty >=0.8.10
