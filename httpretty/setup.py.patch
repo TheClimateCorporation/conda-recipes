@@ -1,0 +1,14 @@
+--- setup.py	2015-05-18 18:10:10.000000000 +0000
++++ setup_modified.py	2016-12-06 18:43:52.209700651 +0000
+@@ -83,9 +83,9 @@
+ 
+ 
+ setup(name='httpretty',
+-    version=read_version(),
++    version='0.8.10',
+     description='HTTP client mock for Python',
+-    long_description=local_file('README.rst'),
++    long_description='HTTP client mock for Python',
+     author='Gabriel Falcao',
+     author_email='gabriel@nacaolivre.org',
+     url='http://github.com/gabrielfalcao/httpretty',
