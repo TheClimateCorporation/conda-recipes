@@ -6,9 +6,8 @@ source:
   fn: httpretty-0.8.10.tar.gz
   url: https://pypi.python.org/packages/e2/25/603bc6b096385b02184cc94f9088fcc06abd9398d0975bbbce97a8989ab5/httpretty-0.8.10.tar.gz
   md5: 9c130b16726cbf85159574ae5761bce7
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  patches:
+    - setup.py.patch
 
 # build:
   #preserve_egg_dir: True
