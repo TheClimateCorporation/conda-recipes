@@ -1,0 +1,77 @@
+package:
+  name: architect
+  version: "0.5.5"
+
+source:
+  fn: architect-0.5.5.tar.gz
+  url: https://pypi.python.org/packages/53/a5/a0a82ccc2607b4adc182cd4413458078c7bfaf37948a635fe094854d6d5f/architect-0.5.5.tar.gz
+  md5: f633539b9b599c29ede833661bbcd0cd
+  patches:
+    - faster-insert.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - architect = architect:main
+    #
+    # Would create an entry point called architect that calls architect.main()
+
+    - architect = architect.commands:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - architect
+    - architect.commands
+    - architect.databases
+    - architect.databases.mysql
+    - architect.databases.postgresql
+    - architect.databases.sqlite
+    - architect.orms
+    - architect.orms.django
+    - architect.orms.peewee
+    - architect.orms.pony
+    - architect.orms.sqlalchemy
+    - architect.orms.sqlobject
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - architect --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - coverage
+    - mock
+    - nose
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/maxtepkeev/architect
+  license: Apache Software License
+  summary: 'A set of tools which enhances ORMs written in Python with more features'
+  license_family: APACHE
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
