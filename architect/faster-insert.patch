@@ -1,0 +1,77 @@
+From 168de370fd126e9c707acffe3af575cebd54bc00 Mon Sep 17 00:00:00 2001
+From: Todd Small <tsmall@climate.com>
+Date: Fri, 3 Mar 2017 23:27:08 +0000
+Subject: [PATCH] Faster inserts into the child tables.
+
+By changing NEW to NULL, no data is inserted into the parent table
+and there's no need to then delete the data from the parent table.
+
+https://github.com/maxtepkeev/architect/issues/26
+
+Also, added "postgresqlext" as a possible alias for a peewee
+PostgreSQL driver.
+---
+ architect/databases/postgresql/partition.py | 26 +-------------------------
+ architect/databases/utilities.py            |  2 +-
+ 2 files changed, 2 insertions(+), 26 deletions(-)
+
+diff --git a/architect/databases/postgresql/partition.py b/architect/databases/postgresql/partition.py
+index f218501..ce31068 100644
+--- a/architect/databases/postgresql/partition.py
++++ b/architect/databases/postgresql/partition.py
+@@ -59,7 +59,7 @@ class Partition(BasePartition):
+                     END IF;
+ 
+                     EXECUTE 'INSERT INTO ' || tablename || ' VALUES (($1).*);' USING NEW;
+-                    RETURN NEW;
++                    RETURN NULL;
+                 END;
+             $$ LANGUAGE plpgsql;
+ 
+@@ -77,30 +77,6 @@ class Partition(BasePartition):
+                     FOR EACH ROW EXECUTE PROCEDURE {{parent_table}}_insert_child();
+             END IF;
+             END $$;
+-
+-            -- Then we create a function to delete duplicate row from the master table after insert
+-            CREATE OR REPLACE FUNCTION {{parent_table}}_delete_master()
+-            RETURNS TRIGGER AS $$
+-                BEGIN
+-                    DELETE FROM ONLY "{{parent_table}}" WHERE {{pk}};
+-                    RETURN NEW;
+-                END;
+-            $$ LANGUAGE plpgsql;
+-
+-            -- Lastly we create the after insert trigger that calls the after insert function
+-            DO $$
+-            BEGIN
+-            IF NOT EXISTS(
+-                SELECT 1
+-                FROM information_schema.triggers
+-                WHERE event_object_table = '{{parent_table}}'
+-                AND trigger_name = 'after_insert_{{parent_table}}_trigger'
+-            ) THEN
+-                CREATE TRIGGER after_insert_{{parent_table}}_trigger
+-                    AFTER INSERT ON "{{parent_table}}"
+-                    FOR EACH ROW EXECUTE PROCEDURE {{parent_table}}_delete_master();
+-            END IF;
+-            END $$;
+         """.format(**definitions).format(
+             pk=' AND '.join('{pk} = NEW.{pk}'.format(pk=pk) for pk in self.pks),
+             parent_table=self.table,
+diff --git a/architect/databases/utilities.py b/architect/databases/utilities.py
+index 09e32c6..1bc9a98 100644
+--- a/architect/databases/utilities.py
++++ b/architect/databases/utilities.py
+@@ -18,7 +18,7 @@ def get_database(dialect):
+     aliases = {
+         ('mysql',): 'mysql',
+         ('sqlite',): 'sqlite',
+-        ('pgsql', 'postgres', 'postgresql'): 'postgresql',
++        ('pgsql', 'postgres', 'postgresql', 'postgresqlext'): 'postgresql',
+     }
+ 
+     dialect = next((aliases[alias] for alias in aliases if dialect in alias), dialect)
+-- 
+1.9.1
+
