@@ -33,7 +33,6 @@ requirements:
     - setuptools
     - google-api-python-client
     - pyopenssl >=0.11
-    - pycrypto
 
   run:
     - python
