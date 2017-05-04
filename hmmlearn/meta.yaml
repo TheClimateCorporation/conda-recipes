@@ -1,0 +1,68 @@
+package:
+  name: hmmlearn
+  version: "0.2.0"
+
+source:
+  fn: hmmlearn-0.2.0.tar.gz
+  url: https://pypi.python.org/packages/dd/9e/6822b0cb04660f897cffb0ef39020423b342548803015f9b6e7dffeed2a8/hmmlearn-0.2.0.tar.gz
+  md5: 929acdbe7c97a2fed65bd3bbff516810
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - hmmlearn = hmmlearn:main
+    #
+    # Would create an entry point called hmmlearn that calls hmmlearn.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - scikit-learn >=0.16
+    - numpy
+
+  run:
+    - python
+    - scikit-learn >=0.16
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - hmmlearn
+    - hmmlearn.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - pytest
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/hmmlearn/hmmlearn
+  license: new BSD
+  summary: 'Hidden Markov Models in Python with scikit-learn like API'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
