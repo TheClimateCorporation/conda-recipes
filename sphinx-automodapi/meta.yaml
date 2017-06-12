@@ -1,0 +1,66 @@
+package:
+  name: sphinx-automodapi
+  version: "0.5"
+
+source:
+  fn: sphinx-automodapi-0.5.tar.gz
+  url: https://pypi.python.org/packages/cc/9f/0579b0a69d91296768fca9188112c068a16f7f90b3f976438fb019696b5f/sphinx-automodapi-0.5.tar.gz
+  md5: de14a2c0ed273a66b920f11977368945
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - sphinx-automodapi = sphinx-automodapi:main
+    #
+    # Would create an entry point called sphinx-automodapi that calls sphinx-automodapi.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - sphinx >1.3
+
+  run:
+    - python
+    - sphinx >1.3
+
+test:
+  # Python imports
+  imports:
+    - sphinx_automodapi
+    - sphinx_automodapi.tests
+    - sphinx_automodapi.tests.example_module
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://astropy.org
+  license: BSD License
+  summary: 'Sphinx extension for auto-generating API documentation for entire modules'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
