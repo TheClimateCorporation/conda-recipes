@@ -1,0 +1,71 @@
+package:
+  name: pygeoprocessing
+  version: "0.5.0"
+
+source:
+  fn: pygeoprocessing-0.5.0.tar.gz
+  url: https://pypi.python.org/packages/27/c1/8bc4791be7c57dc913774e4a4344c45f24b50346550f80be63dc7f19b952/pygeoprocessing-0.5.0.tar.gz
+  md5: c3daf7489c7c3c9ec230864b604ee921
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch: python
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pygeoprocessing = pygeoprocessing:main
+    #
+    # Would create an entry point called pygeoprocessing that calls pygeoprocessing.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy
+    - natcap.versioner >=0.4.2
+
+  run:
+    - python
+    - cython
+    - numpy
+    - natcap.versioner >=0.4.2
+
+test:
+  # Python imports
+  imports:
+    - pygeoprocessing
+    - pygeoprocessing.dbfpy
+    - pygeoprocessing.routing
+    - pygeoprocessing.testing
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/richsharp/pygeoprocessing
+  license: BSD License
+  summary: 'PyGeoprocessing: Geoprocessing routines for GIS'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
