@@ -1,0 +1,39 @@
+package:
+  name: papermill
+  version: !!str 0.12.3
+
+source:
+  fn: papermill-0.12.3.tar.gz
+  url: https://pypi.python.org/packages/60/ee/ea52ab2428f7ea7a84f8f0da983fbf2c8e839e97d451c79c796f85d8b101/papermill-0.12.3.tar.gz
+  md5: e26786c67b7ea8e195325984328ed9fd
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - requests
+    - pandas
+    - jupyter-client
+    - tqdm
+    - six
+    - nbconvert
+    - ipython
+    - nbformat
+    - pyyaml
+    - future
+    - click
+    - boto3
+    - ansiwrap
+
+test:
+  # Python imports
+  imports:
+    - papermill
+
+about:
+  home: https://github.com/nteract/papermill
+  license: 'BSD 3-Clause License'
+  summary: 'Papermill is a tool for parameterizing, executing, and analyzing Jupyter Notebooks.'
